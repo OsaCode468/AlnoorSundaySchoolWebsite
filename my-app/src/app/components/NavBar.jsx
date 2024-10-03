@@ -4,6 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
+import Image from 'next/image';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -16,9 +17,7 @@ import Link from '@mui/material/Link'; // Import Link from Next.js
 const pages = [
     {name: 'Home', href: '/'},
     { name: 'About', href: '/about' },
-    { name: 'Events', href: '/events' },
     { name: 'Curriculum', href: '/curriculum' },
-    { name: 'Donate', href: '/donate' },
     { name: 'Enrollment', href: '/enrollment' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'Careers', href: '/careers' }
@@ -40,24 +39,7 @@ const NavBar = () => {
     <AppBar position="static" sx={{ backgroundColor: 'black' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+          <Image src = "/Logo.png" height={"70"} width = {"70"}></Image>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -97,25 +79,6 @@ const NavBar = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link href={page.href} passHref key={page.name} underline = "none">

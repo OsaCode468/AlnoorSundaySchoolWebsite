@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Image from "next/image";
 
-const About = () => {
+const Curriculum = () => {
   return (
     <Box>
       <NavBar />
@@ -36,7 +36,7 @@ const About = () => {
               marginBottom: '20px',
             }}
           >
-            About Us
+            Curriculum
           </Typography>
           <Typography
             variant="body1" // Change variant to body1 for paragraph
@@ -49,7 +49,7 @@ const About = () => {
           </Typography>
         </Box>
         <Image
-          src="/AboutUs.png"
+          src="/Curriculum.png"
           width={600}
           height={500}
           style={{
@@ -65,4 +65,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Curriculum;

@@ -1,7 +1,7 @@
 "use client"
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import { Box, ImageList, ImageListItem } from "@mui/material"; // Add MUI Box for layout
+import { Box, ImageList, ImageListItem } from "@mui/material";
 
 const itemData = [
   {
@@ -54,18 +54,22 @@ const Gallery = () => {
     return (
         <>
             <NavBar />
-                <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164} variant="quilted">
-                    {itemData.map((item) => (
-                        <ImageListItem key={item.img}>
-                        <img
-                            srcSet={`${item.original}`}
-                            src={`${item.original}`}
-                            alt={item.title}
-                            loading="lazy"
-                        />
-                        </ImageListItem>
-                    ))}
-                </ImageList>
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh' }}>
+                    <Box sx={{ width: '100%', maxWidth: "100%" }}>
+                        <ImageList sx={{ width: '100%' }} cols={3} rowHeight={"100%"} variant="quilted">
+                            {itemData.map((item, index) => (
+                                <ImageListItem key={index}>
+                                    <img
+                                        srcSet={`${item.original}`}
+                                        src={`${item.original}`}
+                                        alt={item.title}
+                                        loading="lazy"
+                                    />
+                                </ImageListItem>
+                            ))}
+                        </ImageList>
+                    </Box>
+                </Box>
             <Footer />
         </>
     );
