@@ -12,7 +12,8 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import Link from '@mui/material/Link'; // Import Link from Next.js
+import Link from 'next/link'; // Import Link from Next.js
+import { Link as MuiLink } from '@mui/material';
 
 const pages = [
     {name: 'Home', href: '/'},
@@ -42,7 +43,7 @@ const NavBar = () => {
         <Toolbar disableGutters>
           <Image src = "/Logo.png" height={"70"} width = {"70"}></Image>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }}}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -73,23 +74,23 @@ const NavBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                  <Link href={page.href} passHref underline = "none">
+                  <MuiLink component={Link} href={page.href} sx = {{textDecoration: 'none', color: 'black'}} >
                     <Typography textAlign="center">{page.name}</Typography>
-                  </Link>
+                  </MuiLink>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link href={page.href} passHref key={page.name} underline = "none">
+              <MuiLink component={Link} href={page.href} sx = {{textDecoration : 'none'}}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
                   {page.name}
                 </Button>
-              </Link>
+              </MuiLink>
             ))}
           </Box>
         </Toolbar>
