@@ -20,7 +20,8 @@ const pages = [
     { name: 'Curriculum', href: '/curriculum' },
     { name: 'Enrollment', href: '/enrollment' },
     { name: 'Gallery', href: '/gallery' },
-    { name: 'Careers', href: '/careers' }
+    { name: 'Careers', href: '/careers' },
+    // {name: 'Events', href: '/events'}
 ];
 
 const NavBar = () => {

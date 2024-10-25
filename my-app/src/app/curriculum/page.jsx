@@ -1,12 +1,21 @@
-import { Box, Typography } from "@mui/material";
+"use client"
+import { Box, Fade, Typography } from "@mui/material";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const Curriculum = () => {
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    setLoaded(true);
+  }, [])
   return (
     <Box>
       <NavBar />
+      <Fade in={loaded} timeout={3000}>
+
       <Box
         sx={{
           display: 'flex',
@@ -45,8 +54,7 @@ const Curriculum = () => {
               lineHeight: { xs: '1.5', md: '1.75' },
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget mi...
-          </Typography>
+Our Islamic Studies curriculum is centered around the Qamar textbook, designed specifically for young learners. This engaging and interactive textbook introduces students to the foundational teachings of Islam, covering essential topics such as Aqaid, Fiqh, Seerah, and Akhlaq, and basic Islamic morals and values. Through colorful illustrations and interactive activities as well as engaging and highly qualified teachers, the Qamar curriculum helps children build a solid understanding of their faith while fostering a love for learning about Islam.          </Typography>
         </Box>
         <Image
           src="/Curriculum.png"
@@ -60,6 +68,7 @@ const Curriculum = () => {
           alt="About Us"
         />
       </Box>
+      </Fade>
       <Footer />
     </Box>
   );

@@ -1,59 +1,47 @@
 "use client"
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import { Box, ImageList, ImageListItem } from "@mui/material";
+import { Box, Fade, ImageList, ImageListItem } from "@mui/material";
+import { useEffect, useState } from "react";
+
 
 const itemData = [
   {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
+    original: "/IMG_2086.png",
+    thumbnail: "/IMG_2086.png",
   },
   {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
+    original: "/IMG_2460.png",
+    thumbnail: "/IMG_2460.png",
   },
   {
-    original: "https://picsum.photos/id/1015/1000/600/",
-    thumbnail: "https://picsum.photos/id/1015/250/150/",
+    original: "/IMG_2241.png",
+    thumbnail: "/IMG_2241.png",
   },
   {
-    original: "https://picsum.photos/id/1019/1000/600/",
-    thumbnail: "https://picsum.photos/id/1019/250/150/",
+    original: "/IMG_2233.png",
+    thumbnail: "/IMG_2233.png",
   },
   {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
+    original: "/IMG_2228.png",
+    thumbnail: "/IMG_2228.png",
   },
   {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
-  },
-  {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
-  },
-  {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
-  },
-  {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
-  },
-  {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
-  },
-  {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
+    original: "/IMG_2131.png",
+    thumbnail: "/IMG_2131.png",
   }
 ];
 
 const Gallery = () => {
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    setLoaded(true);
+  }, [])
     return (
         <>
             <NavBar />
+            <Fade in={loaded} timeout={3000}>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh' }}>
                     <Box sx={{ width: '100%', maxWidth: "100%" }}>
                         <ImageList sx={{ width: '100%' }} cols={3} rowHeight={"100%"} variant="quilted">
@@ -70,6 +58,7 @@ const Gallery = () => {
                         </ImageList>
                     </Box>
                 </Box>
+                </Fade>
             <Footer />
         </>
     );

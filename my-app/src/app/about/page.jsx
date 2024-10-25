@@ -1,12 +1,19 @@
-import { Box, Typography } from "@mui/material";
+"use client"
+import { Box, Fade, Typography } from "@mui/material";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Image from "next/image";
-
+import { useState, useEffect } from "react";
 const About = () => {
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    setLoaded(true);
+  }, [])
   return (
     <Box>
       <NavBar />
+      <Fade in={loaded} timeout={3000}>
       <Box
         sx={{
           display: 'flex',
@@ -45,21 +52,30 @@ const About = () => {
               lineHeight: { xs: '1.5', md: '1.75' },
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget mi...
-          </Typography>
+At Al-Noor Islamic Sunday School, our mission is to create an empowering and nurturing environment that brings together a vibrant community, delivers exceptional Islamic education, and fosters the development of strong character among our students. We are dedicated to providing a welcoming space where individuals of all ages and backgrounds can feel a true sense of belonging and unity.
+
+Our curriculum is designed to enrich both the minds and hearts of our students through a comprehensive Islamic education. With engaging, interactive teaching methods, we equip our students with a deep understanding of Islamic values and principles, empowering them to make positive contributions to society.
+
+
+We also believe that character development is key to shaping well-rounded, ethical individuals. By prioritizing values like integrity, compassion, and social responsibility, we aim to guide students toward becoming responsible and morally grounded members of society.
+
+Through our holistic approach to community building, education, youth empowerment, and character development, Al-Noor Islamic Sunday School is committed to shaping a generation that is compassionate, confident, and guided by Islamic teachings.          </Typography>
         </Box>
-        <Image
-          src="/AboutUs.png"
-          width={600}
-          height={500}
-          style={{
-            maxWidth: '100%', // Make image responsive
-            height: 'auto',   // Keep aspect ratio
-            borderRadius: '10px', // Optional styling
-          }}
-          alt="About Us"
-        />
+        <Box sx = {{paddingBottom: {md: '90px'}}}>
+          <Image
+            src="/AboutUs.png"
+            width={600}
+            height={500}
+            style={{
+              maxWidth: '100%', // Make image responsive
+              height: 'auto',   // Keep aspect ratio
+              borderRadius: '10px', // Optional styling
+            }}
+            alt="About Us"
+          />
+        </Box>
       </Box>
+      </Fade>
       <Footer />
     </Box>
   );
