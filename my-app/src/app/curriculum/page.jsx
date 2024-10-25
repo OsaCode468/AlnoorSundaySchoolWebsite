@@ -45,7 +45,7 @@ const Curriculum = () => {
               marginBottom: '20px',
             }}
           >
-            Curriculum
+            Curr
           </Typography>
           <Typography
             variant="body1" // Change variant to body1 for paragraph
